@@ -8,6 +8,7 @@ public:
     DisjointSet(int n){
         rank.resize(n+1,0);
         parent.resize(n+1);
+        sizes.resize(n+1,1);
 
         for(int i =0;i<=n;i++) parent[i] =i;
     }
@@ -29,6 +30,24 @@ public:
         parent[ultimateParent_v] = ultimateParent_u;
         rank[ultimateParent_u]++;
        } 
+    }
+
+    void unionBySize(int u,int v){
+        int ultimateParent_u = findParent(u);
+        int ultimateParent_v = findParent(v);
+        if(ultimateParent_u == ultimateParent_v) return;
+
+        if(sizes[ultimateParent_u] < sizes[ultimateParent_v]){
+            parent[ultimateParent_u] = ultimateParent_v;
+            sizes[ultimateParent_v]+=sizes[ultimateParent_u];
+
+
+        }else{
+            parent[ultimateParent_v] = sizes[ultimateParent_u];
+            sizes[ultimateParent_u]+=sizes[ultimateParent_v];
+
+
+        }
     }
 };
 
