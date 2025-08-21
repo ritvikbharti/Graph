@@ -7,6 +7,36 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+
+
+
+    bool dfs(vector<vector<int>>& adj,vector<int>& color,int node){
+        color[node] = 1;
+        for(int i = 0;i<adj[node].size();i++){
+            if(color[node] == color[adj[node][i]]) return false;
+            else{
+
+            }
+        }
+
+    }
+
+    bool checkBipartite(vector<vector<int>> adj,vector<int>& color,int parent){
+        queue<int> q;
+        q.push(parent);
+        color[parent] = 0;
+
+        while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            for(int i = 0;i<adj[node].size();i++){
+                if(color[adj[node][i]] == -1){
+                    color[adj[node][i]] = color[node];
+                }else if(color[adj[node][i]] == color[parent]) return false;
+            }
+        }
+        return true;
+    }
   
     bool bfs(vector<vector<int>>& adj,vector<int>& color,int parent){
         queue<int> q;

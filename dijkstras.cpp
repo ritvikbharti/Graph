@@ -7,8 +7,7 @@ using namespace std;
 // User Function Template
 class Solution {
   public:
-    // Function to find the shortest distance of all the vertices
-    // from the source vertex src.
+   
     vector<int> dijkstra(vector<vector<pair<int, int>>> &adj, int src) {
         // Code here
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
@@ -34,7 +33,7 @@ class Solution {
 };
 
 
-//{ Driver Code Starts.
+
 
 int main() {
     int t;
