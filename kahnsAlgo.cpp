@@ -17,6 +17,7 @@ int main(){
         inDegree[v]++;
 
     }
+    vector<int> ans;
     queue<int> q;
 
     for(int i = 0;i<n;i++){
@@ -24,6 +25,7 @@ int main(){
     }
     while(!q.empty()){
         int frontNode = q.front();
+        ans.push_back(frontNode);
         q.pop();
         for(int adjNode : adj[frontNode] ){
             inDegree[adjNode]--;
